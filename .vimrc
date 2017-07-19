@@ -3,6 +3,7 @@ Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nsf/gocode'
 Plug 'alvan/vim-closetag'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 set nocompatible
