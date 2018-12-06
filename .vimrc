@@ -1,17 +1,3 @@
-call plug#begin('~/.vim/plugged')
-" awesome go plugin
-Plug 'fatih/vim-go'
-" I forgot
-Plug 'ctrlpvim/ctrlp.vim'
-" autocompletion lib for go, but f**k `fzf` plugin disabling omnicomplete
-Plug 'nsf/gocode'
-" support close tag detection
-Plug 'alvan/vim-closetag'
-" awesome fuzzy search based on active vim window root directory
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-call plug#end()
-
 set nocompatible
 filetype off
 filetype plugin indent on
@@ -43,14 +29,7 @@ map <right> <nop>
 " set return key to clear search result
 nnoremap <CR> :noh<CR><CR>
 
-let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+
+" load pathogen for vim plugin
+execute pathogen#infect()
