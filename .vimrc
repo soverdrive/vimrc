@@ -46,6 +46,12 @@ hi Comment ctermfg=LightBlue
 " there's another solution, using third party lib
 " https://stackoverflow.com/a/18674997
 set clipboard^=unnamed
+" install Plug if it's not available
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
 Plug 'gkapfham/vim-vitamin-onec'
