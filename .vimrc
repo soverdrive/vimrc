@@ -1,8 +1,12 @@
 " set terminal color to 256
-" set t_Co=256
+set t_Co=256
 " set number
 set nu
 set ruler
+" set vertical ruler for 80 and 120
+set cc=80,120
+let &colorcolumn="80,".join(range(120,999),",")
+hi ColorColumn ctermbg=lightgrey guibg=#2c2d27
 " highlighting search found
 set hlsearch
 set statusline+=%F
@@ -34,9 +38,9 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 let NERDTreeShowHidden=1
 
 " set NERDTree dir colour
-hi Directory ctermfg=LightBlue
+" hi Directory ctermfg=Cyan
 " set comment in vim syntax highlight
-hi Comment ctermfg=LightBlue
+" hi Comment ctermfg=LightBlue
 
 " said this works for macOS: https://stackoverflow.com/a/11421329
 " if $TMUX == ''
@@ -54,10 +58,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
+Plug 'fatih/molokai'
 Plug 'gkapfham/vim-vitamin-onec'
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasiser/vim-code-dark'
 Plug 'fatih/vim-go'
+Plug 'gryf/wombat256grf'
 call plug#end()
 
 " set hightlight for vim-go support. disable if make vim slow.
@@ -73,12 +79,18 @@ let g:go_highlight_generate_tags=1
 let g:go_highlight_variable_assignments=1
 let g:go_highlight_variable_declarations=1
 let g:go_fmt_command="goimports"
+let g:go_fmt_options = "-tabs=false -tabwidth=4"
 let g:go_template_autocreate=0
 syntax on
-colorscheme codedark
-" colorscheme monokai
+" colorscheme codedark
+colorscheme monokai
+" colorscheme molokai
+" colorscheme wombat256grf
 " colorscheme nord
 " colorscheme vitaminonec
 " set nocompatible
 filetype on
 filetype plugin indent on
+
+set wildmode=longest,list,full
+set wildmenu
